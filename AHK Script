@@ -1,0 +1,33 @@
+#SingleInstance, Force
+SendMode Input
+SetWorkingDir, %A_ScriptDir%
+
+;Made by PiggyPiggy
+
+toggle := true
+
+
+`::
+    toggle := !toggle
+    MouseGetPos, xpos, ypos
+    if toggle
+        Tooltip, Auto Choso On, %xpos%, %ypos%
+    else
+        Tooltip, Auto Choso Off, %xpos%, %ypos%
+    SetTimer, RemoveTooltip, -1000
+Return
+
+#If toggle
+ e::
+     Send {1 down}
+     Sleep, 1379
+     Send, {1 up}
+ Return
+
+RemoveTooltip:
+    Tooltip
+Return
+
+^`::
+    ExitApp
+
